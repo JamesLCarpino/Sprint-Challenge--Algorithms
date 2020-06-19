@@ -1,15 +1,20 @@
-#### Please add your answers to the ***Analysis of  Algorithms*** exercises here.
+#### Please add your answers to the **_Analysis of Algorithms_** exercises here.
 
 ## Exercise I
 
-a)
+a) O(n) -> just looping through n times
 
+b) O(n) -> not looping i in the second loop so even though tis nested its still just O(n)
 
-b)
-
-
-c)
+c) O(n) -> a bit of aguess, but if the functoin is only being called recursively once before reaching the base doesn't that make it O(n)?
 
 ## Exercise II
 
+n is the amount of stories in the building
+f is the height at which eggs begin to die
+anything < f will be okay, anything >= f will die
+n being the story at which f is so when n == f -> thats the first point at which eggs will die:
+if n >= f is a broken egg
+if n < f will be okay and remain unscrambled.
 
+I'd probably use a binary search to eliminate large portions of the code and hone in on the f. This would minimize the amount of eggs lost because if you were to drop one egg at the mid point of len(n) and it didn't break you could eliminate everything to the left of that, and then move up until the first broken egg and then eliminate everything to the right after that giving you the f of when those eggs begin to meet their demise, and reverse it if it were the other way around. This would be a run time of O(n) because its doing O(1) per node.
