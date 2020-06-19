@@ -2,11 +2,11 @@
 
 ## Exercise I
 
-a)
+a) O(n) -> just looping through n times
 
-b) O(n^2) -> the bigger n gets the more opperations occure meaning in this case that as it is looping the number of operations will increase squarely. Therefor longer. Specifically in this case it is running the first loop n times and then the second loop n times ie: n^2.
+b) O(n) -> not looping i in the second loop so even though tis nested its still just O(n)
 
-c)
+c) O(n) -> a bit of aguess, but if the functoin is only being called recursively once before reaching the base doesn't that make it O(n)?
 
 ## Exercise II
 
