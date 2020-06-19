@@ -120,8 +120,9 @@ class SortingRobot:
         # if check_right ==  start over again. recusion --> or would be cool to do the opposite at the end of the array moving left.
         # if it cannot move right that means it can move left:
         # this means its at the end of the array.
-        # if at len(arr)-1 then it cannot move right because there is no more room
+
         # check if it can move left.
+        # once it finds out if the item is none just leave the loop
 
         # so pick up item to the left of the last item.
 
@@ -132,11 +133,31 @@ class SortingRobot:
         # if it is less than the number it is currently holding swap it
         #
         # -------------------------------------------------------------------------------#
-        # base case l is empty:
-        if self._list == 0:
-            return l
+        if (
+            self.can_move_right() is False
+        ):  # base case so if it an't move left just return the list
+            return self._list
+        # this lets the while loop work
+        self.swap_item()
 
-        # moving left? at any point do I need to move left? If i'm just going to recursively check this thing?
+        while self.can_move_right() is True:
+            # move it right
+            self.move_right()
+            # want to compare items.
+            # if greater
+            if self.compare_item() == 1:
+                self.swap_item()  # now its holding a greater number
+
+        while self.can_move_left() is True:
+            # move that thing left.
+            self.move_left()
+            # compare
+            if self.compare_item() == None:
+                self.swap_item()
+                break
+
+        self.move_right()
+        return self.sort()
 
 
 if __name__ == "__main__":
